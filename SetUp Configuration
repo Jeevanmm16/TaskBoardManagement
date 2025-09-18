@@ -1,0 +1,6 @@
+Database Connection
+Update appsettings.json with your SQL Server connection string:
+
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost;Database=TaskBoardDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+}
