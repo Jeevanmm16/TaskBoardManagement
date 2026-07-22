@@ -121,8 +121,9 @@ namespace TaskBoardManagement.Service
                 var userExists = await _unitOfWork.TaskItems.ExistsAsync(dto.AssignedToUserId.Value);
                 if (!userExists)
                     throw new EntityNotFoundException("User", dto.AssignedToUserId.Value);
+
+                existingTask.AssignedToUserId = dto.AssignedToUserId;
             }
-            existingTask.AssignedToUserId = dto.AssignedToUserId;
 
             _unitOfWork.TaskItems.Update(existingTask);
             await _unitOfWork.CompleteAsync();
